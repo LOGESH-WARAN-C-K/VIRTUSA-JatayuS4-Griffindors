@@ -1,0 +1,84 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0fdf4; /* light green background */
+  min-height: 100vh;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.profile-header h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #14532d; /* dark green text */
+}
+
+.profile-header p {
+  font-size: 14px;
+  color: #6b7280; /* grayish text */
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.profile-label {
+  font-weight: 600;
+  color: #065f46; /* medium green */
+  margin-bottom: 6px;
+}
+
+.profile-value {
+  color: #111827; /* dark text */
+  font-size: 16px;
+}
+
+
+
+
+
+.profile-edit-btn {
+
+  padding: 10px 16px;
+  margin-right: 10px;
+  background-color: #10b981; /* emerald green */
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-edit-btn:hover {
+  background-color: #059669; /* darker green on hover */
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 24px;
+  }
+  .profile-edit-btn {
+    width: 100%;
+    margin-top: 10px;
+    
+  }
+}

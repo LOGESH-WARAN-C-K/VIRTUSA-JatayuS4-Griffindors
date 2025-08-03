@@ -1,0 +1,141 @@
+.demand-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.demand-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+input[type='number'],
+input[type='text'] {
+  padding: 16px;
+  font-size: 16px;
+  border: 1.5px solid #bdc3c7;
+  border-radius: 8px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+}
+
+.add-btn {
+  padding: 15px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #2980b9;
+}
+
+.demand-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.demand-item {
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #fdfefe;
+  border: 1px solid #dcdde1;
+  border-left: 6px solid #2ecc71;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  text-align: left;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.job-desc-preview {
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #2d3436;
+}
+
+.requirement {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #555;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.requirement ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.requirement ul li {
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #2c3e50;
+}
+
+.demand-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #d4ac0d;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+.require {
+  padding: 50px;
+}

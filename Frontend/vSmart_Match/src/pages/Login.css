@@ -1,0 +1,139 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f4f8;
+}
+
+.login-box {
+  position: relative;
+  width: 800px;
+  height: 480px;
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.login-form-container {
+  width: 50%;
+  padding: 40px;
+  transition: all 0.5s ease;
+}
+
+.login-side-panel {
+  width: 50%;
+  background: #2ecc71;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.login-wrapper.login-signup-mode .login-form-container {
+  transform: translateX(100%);
+}
+
+.login-wrapper.login-signup-mode .login-side-panel {
+  transform: translateX(-100%);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.login-form-group {
+  position: relative;
+  width: 100%;
+}
+
+/* Common style for all inputs */
+.login-form-group input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+}
+
+.login-form-group input:focus,
+.login-form-group input:valid {
+  outline: none;
+  border-bottom: 2px solid #2ecc71;
+}
+
+.login-form-group label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  font-size: 16px;
+  color: #888;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.login-form-group input:focus + label,
+.login-form-group input:valid + label {
+  transform: translateY(-24px);
+  font-size: 12px;
+  color: #2ecc71;
+}
+
+
+
+.login-submit-btn {
+  background: #2ecc71;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.login-submit-btn:hover {
+  background: #27ae60;
+}
+
+.login-ghost-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+.login-toggle-text span {
+  color: #2ecc71;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.login-panel-heading {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.login-panel-text {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}

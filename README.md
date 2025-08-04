@@ -42,9 +42,9 @@ cd Backend
 npm install
 
 # Install frontend dependencies
-cd ../Frontend
+cd Frontend
+cd vSmart_Match
 npm install
-cd ..
 ```
 
 ### 3. Environment Configuration
@@ -55,7 +55,7 @@ Create the backend `.env` file by running this command in your project root:
 
 ```bash
 # Create the backend .env file
-cat <<EOL > ./Backend/.env
+
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 DROPBOX_ACCESS_TOKEN=your_dropbox_access_token
@@ -66,7 +66,7 @@ LANGSMITH_TRACING=true
 LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 LANGSMITH_API_KEY=your_langsmith_api_key
 LANGSMITH_PROJECT=vSmart_Match
-EOL
+
 ```
 
 **Environment Variables Explanation:**
@@ -84,24 +84,6 @@ EOL
 | `LANGSMITH_API_KEY` | LangSmith API key | Get from [LangSmith Dashboard](https://smith.langchain.com/) |
 | `LANGSMITH_PROJECT` | Project name in LangSmith | `vSmart_Match` |
 
-#### Frontend Setup
-
-Create the frontend `.env` file by running this command in your project root:
-
-```bash
-# Create the frontend .env file
-cat <<EOL > ./Frontend/.env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_BASE_URL=http://localhost:5000
-EOL
-```
-
-**Frontend Environment Variables:**
-
-| Variable | Description | Default Value |
-|----------|-------------|---------------|
-| `REACT_APP_API_URL` | Backend API base URL | `http://localhost:5000/api` |
-| `REACT_APP_BASE_URL` | Backend server base URL | `http://localhost:5000` |
 
 ### 4. Start the Application
 
@@ -109,7 +91,7 @@ EOL
 
 ```bash
 cd Backend
-npm run dev
+node server.js
 # Backend will run on http://localhost:5000
 ```
 
@@ -117,28 +99,14 @@ npm run dev
 
 ```bash
 cd Frontend
-npm start
+cd vSmart_Match
+npm run dev
 # Frontend will run on http://localhost:3000
 ```
 
 ## 🗄️ Database Setup
 
-### MongoDB Local Setup
-
-1. **Install MongoDB Community Edition**
-2. **Start MongoDB service:**
-   ```bash
-   # On macOS with Homebrew
-   brew services start mongodb-community
-   
-   # On Ubuntu/Debian
-   sudo systemctl start mongod
-   
-   # On Windows
-   net start MongoDB
-   ```
-
-### MongoDB Atlas Setup (Alternative)
+### MongoDB Atlas Setup 
 
 1. Create account at [MongoDB Atlas](https://www.mongodb.com/atlas)
 2. Create a new cluster
@@ -177,27 +145,6 @@ npm start
 
 2. **Update environment variables with Dropbox credentials**
 
-## 🚀 Production Deployment
-
-### Backend Deployment
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm run start:prod
-```
-
-### Frontend Deployment
-
-```bash
-# Build for production
-npm run build
-
-# Serve build files (using serve package)
-npm install -g serve
-serve -s build -l 3000
 ```
 
 ## 📁 Project Structure
@@ -244,82 +191,6 @@ vSmart_Match/
     └── .env
 ```
 
-## 🔧 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-
-### Job Descriptions
-- `GET /api/jobdesc` - Get all job descriptions
-- `POST /api/jobdesc` - Create new job description
-- `PUT /api/jobdesc/:id` - Update job description
-- `DELETE /api/jobdesc/:id` - Delete job description
-
-### Resumes
-- `POST /api/resumes/upload` - Upload and parse resume
-- `GET /api/resumes` - Get all parsed resumes
-- `GET /api/resumes/:id` - Get specific resume
-- `DELETE /api/resumes/:id` - Delete resume
-
-### Proposals
-- `POST /api/proposed` - Propose candidate
-- `GET /api/proposed` - Get all proposals
-- `PUT /api/proposed/:id` - Update proposal status
-- `GET /api/proposed/export` - Export to CSV
-
-### Chatbot
-- `POST /api/chatbot/query` - Send query to AI chatbot
-
-## 🧪 Testing
-
-### Backend Testing
-```bash
-cd Backend
-npm test
-```
-
-### Frontend Testing
-```bash
-cd Frontend
-npm test
-```
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **MongoDB Connection Error:**
-   - Ensure MongoDB is running
-   - Check connection string in `.env`
-   - Verify network connectivity for Atlas
-
-2. **File Upload Issues:**
-   - Check `MAX_FILE_SIZE` in both frontend and backend
-   - Ensure `uploads` directory exists
-   - Verify file permissions
-
-3. **Langflow Connection Error:**
-   - Ensure Langflow is running on specified port
-   - Check `LANGFLOW_BASE_URL` and `LANGFLOW_API_KEY`
-   - Verify flow ID is correct
-
-4. **CORS Issues:**
-   - Update `FRONTEND_URL` in backend `.env`
-   - Check CORS middleware configuration
-
-### Logs and Debugging
-
-Backend logs are available in the console when running in development mode. For production, consider implementing proper logging with Winston or similar.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
 
 ## 📄 License
 

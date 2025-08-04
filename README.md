@@ -136,7 +136,7 @@ npm run dev
 2. Create a new project
 3. Get API key and update `.env` variables
 
-## ☁️ Dropbox Integration Setup
+## ☁ Dropbox Integration Setup
 
 1. **Create Dropbox App:**
    - Go to [Dropbox App Console](https://www.dropbox.com/developers/apps)
@@ -145,52 +145,49 @@ npm run dev
 
 2. **Update environment variables with Dropbox credentials**
 
-```
 
-## 📁 Project Structure
-
+## Project Structure
 ```
 vSmart_Match/
-├── Frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── pages/
-│   │   │   ├── Home.css & Home.jsx
-│   │   │   ├── JobDesc.css & JobDesc.jsx
-│   │   │   ├── Login.css & Login.jsx
-│   │   │   ├── ProfilePage.css & ProfilePage.jsx
-│   │   │   ├── Proposed.css & Proposed.jsx
-│   │   │   └── ResumeScreen.css & ResumeScreen.jsx
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   ├── MainPage.jsx
-│   │   ├── Navbar.css & Navbar.jsx
-│   │   └── ProtectedRoute.jsx
-│   ├── package.json
-│   └── .env
-└── Backend/
-    ├── middleware/
-    │   ├── authMiddleware.js
-    │   └── verifyToken.js
-    ├── models/
-    │   ├── JobDesc.js
-    │   ├── ParsedResume.js
-    │   ├── ProposedResume.js
-    │   └── User.js
-    ├── routes/
-    │   ├── auth.js
-    │   ├── chatbot.js
-    │   ├── jobdesc.js
-    │   ├── proposed.js
-    │   ├── resumes.js
-    │   └── user.js
-    ├── uploads/
-    ├── server.js
-    ├── package.json
-    └── .env
+├── Frontend/                            # React-based client-side application
+│   ├── public/                          # Static public assets (index.html, favicon, etc.)
+│   ├── src/                             # Source code
+│   │   ├── assets/                      # Images, icons, and static assets
+│   │   ├── pages/                       # Feature-specific React pages
+│   │   │   ├── Home.css & Home.jsx          # Homepage with chatbot and dashboard links
+│   │   │   ├── JobDesc.css & JobDesc.jsx    # Job description editor and manager
+│   │   │   ├── Login.css & Login.jsx        # User authentication
+│   │   │   ├── ProfilePage.css & ProfilePage.jsx  # Edit user profile
+│   │   │   ├── Proposed.css & Proposed.jsx        # View/export proposed resumes
+│   │   │   └── ResumeScreen.css & ResumeScreen.jsx # Resume parsing, filter, spider graph
+│   │   ├── App.jsx                        # Main React component for routing
+│   │   ├── main.jsx                       # React root entry file
+│   │   ├── MainPage.jsx                   # Landing page layout
+│   │   ├── Navbar.css & Navbar.jsx        # Top navigation component
+│   │   └── ProtectedRoute.jsx             # Auth-protected route logic
+│   ├── package.json                       # Frontend dependencies and scripts
+│   └── .env                               # React environment variables
+└── Backend/                             # Node.js + Express server-side code
+    ├── middleware/                       # Middleware logic
+    │   ├── authMiddleware.js                 # JWT token validation (basic)
+    │   └── verifyToken.js                   # Token verifier (with user decoding)
+    ├── models/                           # Mongoose schema definitions
+    │   ├── JobDesc.js                        # Job description schema
+    │   ├── ParsedResume.js                   # Parsed resume structure
+    │   ├── ProposedResume.js                 # Proposed candidates
+    │   └── User.js                           # User credentials and profile
+    ├── routes/                           # API route handlers
+    │   ├── auth.js                           # Login/Register logic
+    │   ├── chatbot.js                        # Langflow AI chatbot route
+    │   ├── jobdesc.js                        # Job description CRUD routes
+    │   ├── proposed.js                       # Candidate proposal routes
+    │   ├── resumes.js                        # Resume upload, parse, filter routes
+    │   └── user.js                           # User update profile route
+    ├── uploads/                          # Temporary resume upload directory
+    ├── server.js                         # Express app entry point
+    ├── package.json                      # Backend dependencies and scripts
+    └── .env                              # Environment configuration (Mongo, Langflow, Dropbox, etc.)
 ```
-
 
 ## 📄 License
 

@@ -1,4 +1,4 @@
-# vSmart Match 🔍💼
+# vSmart Match Gen AI Powered Talent Focussed 🔍💼
 
 **vSmart Match** is an AI-powered resume screening and HR assistance platform built using the **MERN stack** and integrated with **Langflow + LangSmith** for intelligent parsing, scoring, and visualization of resumes.
 
@@ -25,7 +25,7 @@ Ensure the following are installed:
 - **Dropbox** developer token
 - **Langflow & LangSmith** account
 
-## 🛠️ Installation & Setup
+## 🛠️ Quick Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -34,129 +34,92 @@ git clone https://github.com/yourusername/vsmart-match.git
 cd vsmart-match
 ```
 
-### 2. Backend Setup
+### 2. Install Dependencies
 
 ```bash
+# Install backend dependencies
 cd Backend
 npm install
+
+# Install frontend dependencies
+cd ../Frontend
+npm install
+cd ..
 ```
 
-#### Backend Environment Configuration
+### 3. Environment Configuration
 
-Create a `.env` file in the `Backend` directory with the following variables:
+#### Backend Setup
 
-```env
-# Server Configuration
+Create the backend `.env` file by running this command in your project root:
+
+```bash
+# Create the backend .env file
+cat <<EOL > ./Backend/.env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+DROPBOX_ACCESS_TOKEN=your_dropbox_access_token
+LANGFLOW_API_KEY=your_langflow_api_key
+LANGFLOW_FLOW_ID=your_flow_id
 PORT=5000
-NODE_ENV=development
-
-# Database
-MONGODB_URI=mongodb://localhost:27017/vsmart_match
-# OR for MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/vsmart_match
-
-# JWT Authentication
-JWT_SECRET=your_super_secret_jwt_key_here_make_it_long_and_complex
-JWT_EXPIRE=7d
-JWT_COOKIE_EXPIRE=7
-
-# Langflow Configuration
-LANGFLOW_BASE_URL=http://localhost:7860
-LANGFLOW_API_KEY=your_langflow_api_key_here
-LANGFLOW_FLOW_ID=your_flow_id_here
-
-# LangSmith Configuration
-LANGCHAIN_TRACING_V2=true
-LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
-LANGCHAIN_API_KEY=your_langsmith_api_key_here
-LANGCHAIN_PROJECT=vsmart-match
-
-# Dropbox Integration
-DROPBOX_ACCESS_TOKEN=your_dropbox_access_token_here
-DROPBOX_APP_KEY=your_dropbox_app_key_here
-DROPBOX_APP_SECRET=your_dropbox_app_secret_here
-
-# File Upload Configuration
-MAX_FILE_SIZE=10485760
-UPLOAD_PATH=./uploads
-
-# Email Configuration (optional)
-EMAIL_FROM=noreply@vsmartmatch.com
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_EMAIL=your_email@gmail.com
-SMTP_PASSWORD=your_app_password
-
-# CORS Configuration
-FRONTEND_URL=http://localhost:3000
-
-# AI Model Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-MODEL_TEMPERATURE=0.7
-MAX_TOKENS=1000
-
-# Resume Parsing Configuration
-PDF_PARSER_TIMEOUT=30000
-SKILL_EXTRACTION_THRESHOLD=0.5
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=your_langsmith_api_key
+LANGSMITH_PROJECT=vSmart_Match
+EOL
 ```
+
+**Environment Variables Explanation:**
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `MONGO_URI` | MongoDB connection string | `mongodb://localhost:27017/vsmart_match` or `mongodb+srv://user:pass@cluster.mongodb.net/vsmart_match` |
+| `JWT_SECRET` | Secret key for JWT token generation | `your_super_secret_jwt_key_make_it_long_and_secure` |
+| `DROPBOX_ACCESS_TOKEN` | Dropbox API access token | Get from [Dropbox App Console](https://www.dropbox.com/developers/apps) |
+| `LANGFLOW_API_KEY` | Langflow API authentication key | Generated from your Langflow instance |
+| `LANGFLOW_FLOW_ID` | Specific flow ID for resume processing | Found in your Langflow dashboard |
+| `PORT` | Backend server port | `5000` (default) |
+| `LANGSMITH_TRACING` | Enable LangSmith tracing | `true` or `false` |
+| `LANGSMITH_ENDPOINT` | LangSmith API endpoint | `https://api.smith.langchain.com` |
+| `LANGSMITH_API_KEY` | LangSmith API key | Get from [LangSmith Dashboard](https://smith.langchain.com/) |
+| `LANGSMITH_PROJECT` | Project name in LangSmith | `vSmart_Match` |
+
+#### Frontend Setup
+
+Create the frontend `.env` file by running this command in your project root:
+
+```bash
+# Create the frontend .env file
+cat <<EOL > ./Frontend/.env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_BASE_URL=http://localhost:5000
+EOL
+```
+
+**Frontend Environment Variables:**
+
+| Variable | Description | Default Value |
+|----------|-------------|---------------|
+| `REACT_APP_API_URL` | Backend API base URL | `http://localhost:5000/api` |
+| `REACT_APP_BASE_URL` | Backend server base URL | `http://localhost:5000` |
+
+### 4. Start the Application
 
 #### Start Backend Server
 
 ```bash
-# Development mode with nodemon
+cd Backend
 npm run dev
-
-# Production mode
-npm start
+# Backend will run on http://localhost:5000
 ```
 
-The backend server will run on `http://localhost:5000`
-
-### 3. Frontend Setup
-
-Open a new terminal and navigate to the frontend directory:
+#### Start Frontend Server (in a new terminal)
 
 ```bash
 cd Frontend
-npm install
-```
-
-#### Frontend Environment Configuration
-
-Create a `.env` file in the `Frontend` directory:
-
-```env
-# API Configuration
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_BASE_URL=http://localhost:5000
-
-# Application Configuration
-REACT_APP_NAME=vSmart Match
-REACT_APP_VERSION=1.0.0
-
-# File Upload Limits
-REACT_APP_MAX_FILE_SIZE=10485760
-REACT_APP_ALLOWED_FILE_TYPES=.pdf,.doc,.docx
-
-# Chart.js Configuration
-REACT_APP_CHART_ANIMATION_DURATION=1000
-
-# Dropbox Configuration (Frontend)
-REACT_APP_DROPBOX_APP_KEY=your_dropbox_app_key_here
-
-# Feature Flags
-REACT_APP_ENABLE_CHATBOT=true
-REACT_APP_ENABLE_EXPORT=true
-REACT_APP_ENABLE_ANALYTICS=true
-```
-
-#### Start Frontend Development Server
-
-```bash
 npm start
+# Frontend will run on http://localhost:3000
 ```
-
-The frontend application will run on `http://localhost:3000`
 
 ## 🗄️ Database Setup
 
@@ -367,13 +330,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Frontend Developer** - React.js, UI/UX
 - **Backend Developer** - Node.js, Express.js
 - **AI/ML Engineer** - Langflow, LangSmith Integration
-- **DevOps Engineer** - Deployment, CI/CD
-
-
-## 🔧 Environment Configuration
-
-### 📂 Frontend: `/Frontend/vSmartMatch/.env`
-```bash
-# Create the frontend .env file
-echo "REACT_APP_BACKEND_URL=http://localhost:5000/api" > ./Frontend/vSmartMatch/.env
-

@@ -1,10 +1,10 @@
 
 
-# 📘 vSmart Match – GitHub Wiki
+# 📘 vSmart Match – Gen AI Powered , Talent Focused 
 
 ## 🧠 Overview
 
-**vSmart Match** is a **GenAI-powered resume screening platform** built with the **MERN stack**, integrated with **Langflow** and **LangSmith** for intelligent resume parsing, certificate validation, scoring, and contextual skill analysis. Results are visualized through dashboards and radar charts to support smarter, faster hiring decisions.
+**vSmart Match** is a **GenAI-powered Talent Focused ** built with the **MERN stack**, integrated with **Langflow** and **LangSmith** for intelligent resume parsing, certificate validation, scoring, and contextual skill analysis. Results are visualized through dashboards and radar charts to support smarter, faster hiring decisions.
 
 ---
 
